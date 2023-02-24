@@ -2,7 +2,6 @@ import transporter from "../configs/smtp";
 import fetch from "node-fetch";
 import { NextFunction, Request, Response } from "express";
 import dayjs from "dayjs";
-
 interface User {
   username: string;
   uid: string;
@@ -20,7 +19,7 @@ interface EmailOptions {
   text: string;
 }
 
-export const emailQueue: EmailOptions[] = [];
+const emailQueue: EmailOptions[] = [];
 let isProcessing = false;
 
 const processQueue = () => {
@@ -36,7 +35,7 @@ const processQueue = () => {
   }
 };
 
-export const addRequestToQueue = async (
+export const submitWish = async (
   req: Request,
   res: Response,
   next: NextFunction

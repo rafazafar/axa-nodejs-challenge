@@ -1,5 +1,6 @@
 import express from "express";
 import { Request, Response, NextFunction } from "express";
+import swaggerUi from "swagger-ui-express";
 
 import rootRouter from "./routes/index";
 import santaRouter from "./routes/santa";
@@ -21,6 +22,17 @@ app.use("/santa", santaRouter);
 // Express Logging middleware
 app.use(winstonLogger);
 app.use(winstonErrorLogger);
+
+// Swagger Docs
+app.use(
+  "/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(undefined, {
+    swaggerOptions: {
+      url: "/swagger.json",
+    },
+  })
+);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);

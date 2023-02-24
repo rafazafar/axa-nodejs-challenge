@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { addRequestToQueue } from "../controllers/santa";
+import { submitWish } from "../controllers/santa";
 
 const router = Router();
 
-router.post("/wish", addRequestToQueue);
+router.post("/wish", submitWish);
 
 export default router;

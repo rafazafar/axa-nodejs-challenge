@@ -54,11 +54,7 @@ Visit site at [http://localhost:3000](http://localhost:3000)
 
 ## API Reference
 
-#### Send a wish to Santa
-
-```http
-  POST /wish
-```
+View Swagger docs at [http://localhost:300/docs](http://localhost:3000/docs)
 
 ## License
 
